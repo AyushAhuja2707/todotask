@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}View Page {% endblock %}
+
+{% block content %}
+<h1>Show Page</h1>
+
+<table border='2'>
+	{% for d in data %}
+	<tr>
+		<td>{{d.deptid}}</td>
+		<td>{{d.deptname}}</td>
+		<td><a href="{% url 'deletedept' id=d.deptid %}" onclick="return confirm('R u Sure')">Delete</a></td>
+	</tr>
+	{% empty %}
+	<tr>
+		<td>No Data Found</td>
+	</tr>
+	{% endfor %}
+</table>
+
+{% endblock %}

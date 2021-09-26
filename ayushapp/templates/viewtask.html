@@ -1,0 +1,96 @@
+{% load static %}
+
+<html>
+<head>
+	<title>View Tasks</title>
+	<style>	
+		*{font-size:40px;}
+		#nav{background-color:black;}
+	body{
+	background-color:#FAEBD7;}
+		#nav a{font-size:30px;text-decoration:none;padding:30px;color:white;}
+		
+		footer{
+		position:relative;
+		left: 0;
+		bottom: 0;
+		}
+
+	</style>
+</head>
+	<body>
+	<center>
+		<div id="nav">
+			
+			<a href="{% url 'dashboard' %}">DashBoard</a>
+			<a href="{% url 'addtask' %}">Add Task</a>
+			<a href="{% url 'viewtask' %}">View Task</a>
+			<a href="{% url 'weather' %}">Weather</a>
+			<a href="{% url 'Logout' %}">Log Out </a>
+		</div>
+		<h1>View Tasks</h1>
+
+		<table border='2'>
+			<th>Tasks</th>
+			<th>Time Stamp</th>
+			<th>Due Date</th>
+			<th>Delete</th>
+		{% for d in data %}
+		<tr>
+			<td>{{d.task}}</td>
+			<td>{{d.time}}</td>
+			<td>{{d.due}}</td>
+			<td><a style="color:red;href="{% url 'deletetask' id=d.id %}" onclick="return confirm('Are u Sure') ">Delete</a></td>
+		</tr>
+		{% empty %}
+		<tr>
+			<td>No Data Found</td>
+		</tr>
+		{% endfor %}
+		</table>
+<footer>
+	<img style="width: 100%;border-top-width: 50px;padding-top: 250px;height: 453.738;" src="{% static 'images/Quickplan1.png' %}">
+
+</footer>
+</center>
+	</body>
+</html>
+
+
+
+
+{% block title %}View Tasks{% endblock %}
+<style>
+
+footer{
+position:relative;
+left: 0;
+bottom: 0;
+}
+</style>
+{% block content %}
+<h1>View Tasks</h1>
+
+<table border='2'>
+	<th>Tasks</th>
+	<th>Time Stamp</th>
+	<th>Due Date</th>
+	<th>Delete</th>
+	{% for d in data %}
+	<tr>
+		<td>{{d.task}}</td>
+		<td>{{d.time}}</td>
+		<td>{{d.due}}</td>
+		<td><a href="{% url 'deletetask' id=d.id %}" onclick="return confirm('Are u Sure')">Delete</a></td>
+	</tr>
+	{% empty %}
+	<tr>
+		<td>No Data Found</td>
+	</tr>
+	{% endfor %}
+</table>
+<footer>
+	<img style="width: 100%;border-top-width: 50px;padding-top: 250px;height: 453.738;" src="{% static 'images/Quickplan1.png' %}">
+
+</footer>
+{% endblock %}

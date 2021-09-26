@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<style>	
+		*{font-size:40px;}
+		#nav{background-color:black;}
+		#nav a{font-size:30px;text-decoration:none;padding:30px;color:white;}
+	</style>
+</head>
+	<body>
+	<center>
+		<div id="nav">
+			
+			<a href="{% url 'dashboard' %}">DashBoard</a>
+			<a href="{% url 'addtask' %}">Add Task</a>
+			<a href="{% url 'viewtask' %}">View Task</a>
+			<a href="{% url 'weather' %}">Weather</a>
+			<a href="{% url 'Logout' %}">Log Out </a>
+		</div>
+		{% block content %}{% endblock %}
+	</center>
+	</body>
+</html>

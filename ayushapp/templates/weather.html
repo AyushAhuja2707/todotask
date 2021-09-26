@@ -1,0 +1,72 @@
+{% load static %}
+<html>
+<head>
+	<title>Weather</title>
+	<style>	
+		*{font-size:40px;}
+		#nav{background-color:black;}
+		#nav a{font-size:30px;text-decoration:none;padding:30px;color:white;}
+		body{
+	background-color:#FAEBD7;}
+		footer{
+		position:relative;
+		left: 0;
+		bottom: 0;
+		}
+	</style>
+	<script>
+		function validate()
+		{
+			var c = document.getElementById('city');
+			
+
+			if(c.value == "")
+			{
+				alert("City name Cannot be empty");
+				c.focus();
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+	</script>
+</head>
+	<body>
+	<center>
+		<div id="nav">
+			
+			<a href="{% url 'dashboard' %}">DashBoard</a>
+			<a href="{% url 'addtask' %}">Add Task</a>
+			<a href="{% url 'viewtask' %}">View Task</a>
+			<a href="{% url 'weather' %}">Weather</a>
+			<a href="{% url 'Logout' %}">Log Out </a>
+		</div>
+		
+	<h1>Today's Weather </h1>
+	
+	<form onsubmit="return validate()">
+		
+		<input type="text" name="city" placeholder='Enter city name' id='city' autocomplete="off" > 		
+		<br><br>
+		<input type="image" src="{% static 'images/s1.png' %}" width="20" height="20">
+	</form>
+	
+	Temperature -> {{ msg }}
+	
+	<footer>
+		<img style="width: 100%;border-top-width: 50px;padding-top: 250px;height: 453.738;" src="{% static 'images/Quickplan1.png' %}">
+
+	</footer>
+
+
+
+	</center>
+	</body>
+</html>
+
+    
+
+	
+	
