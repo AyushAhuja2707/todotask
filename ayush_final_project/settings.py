@@ -129,7 +129,7 @@ EMAIL_HOST = "smtp.gmail.com"
 
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "s1032190095@gmail.com"
-EMAIL_HOST_PASSWORD = "Muskan14"
+EMAIL_HOST_PASSWORD = "Password_of_mail"
 
 EMAIL_USE_TLS=True
 EMAIL_USE_SSL= False
